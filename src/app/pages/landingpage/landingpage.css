@@ -1,3 +1,7 @@
+:root {
+  --main-color: #4a90e2;
+  --text-light: #ffffff;
+}
 
 /* text-section */
 .text-section {
@@ -5,18 +9,16 @@
   color: white;
   padding: 100px 10%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: left;
+  text-align: center;
+  gap: 20px;
   min-height: 80vh;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
   animation: fadeInUp 1s ease-out;
 }
 
-.buttons-container{
+.buttons-container {
   display: flex;
   gap: 10px;
   margin-top: 20px;
@@ -27,7 +29,6 @@
   font-weight: 700;
   line-height: 1.3;
   margin: 0;
-  text-align: center;
 }
 
 .text-section p {
@@ -36,7 +37,6 @@
   line-height: 1.5;
   margin-bottom: 20px;
   width: 70%;
-  text-align: center;
 }
 
 .text-section button {
@@ -49,7 +49,6 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-right: 15px;
 }
 
 .text-section button:hover {
@@ -59,7 +58,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Simple entrance animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -71,5 +69,311 @@
   }
 }
 
+/* Presentation */
+.Presentation{
+  animation: fadeInUp 1s ease-out;
+}
+.Presentation h1,
+.Presentation p {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-/* text-section */
+.Presentation p {
+  margin-bottom: 50px;
+}
+
+.Presentation .img-information {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.container-information {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 65%;
+}
+
+.Presentation .img-information .information {
+  height: 130px;
+  text-align: center;
+  border: 2px solid #dbd4d4;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Presentation .img-information img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .Presentation .img-information {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-information {
+    grid-template-columns: 1fr 1fr;
+    max-width: 100%;
+  }
+
+  .Presentation .img-information img {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-information {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Modern Teams */
+.modern-teams {
+  margin: 0 auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #4a90e2;
+  padding: 60px 20px;
+  color: var(--text-light);
+  animation: fadeInUp 1s ease-out;
+}
+
+.modern-teams h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #f0f0f0;
+}
+
+.modern-teams p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #f0f0f0;
+}
+
+.information-modern-teams {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.container-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background-color: white;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  flex: 1 1 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-check:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.container-check i {
+  color: #4CAF50;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  background-color: #e0f7e9;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.info-text h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.info-text p {
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+  color: #666;
+  text-align: left;
+}
+
+/* workflow */
+.workflow{
+  margin: 0 auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 100px;
+  color: #333;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* .workflow .workflow-container h1{
+
+}
+.workflow .workflow-container{
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgb(230, 224, 224);
+  border-radius: 10px;
+} */
+.workflow .buttons-container{
+  justify-content: center;
+}
+
+.workflow .buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.workflow .buttons-container button {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Primary button */
+.workflow .buttons-container button:first-child {
+  background: linear-gradient(135deg, #4a90e2, #3b70c0);
+  color: white;
+  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+}
+
+.workflow .buttons-container button:first-child:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(74, 144, 226, 0.4);
+}
+
+/* Secondary (outlined) button */
+.workflow .buttons-container button:last-child {
+  background: transparent;
+  color: #4a90e2;
+  border: 2px solid #4a90e2;
+}
+
+.workflow .buttons-container button:last-child:hover {
+  background: #4a90e2;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* end workflow */
+
+/* Footer */
+.footer {
+  background: linear-gradient(180deg, #ffffff 0%, #f3f7fb 100%);
+  color: #333;
+  padding: 60px 10%;
+  font-family: Arial, sans-serif;
+  border-top: 1px solid #e0e0e0;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-section h3 {
+  font-size: 22px;
+  color: #4a90e2;
+  margin-bottom: 15px;
+}
+
+.footer-section h4 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.footer-section p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #4a90e2;
+}
+
+.social-icons a {
+  margin-right: 12px;
+  color: #4a90e2;
+  font-size: 20px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #3b70c0;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Footer */
+
+/*Animation*/
+
+/*Animation*/
