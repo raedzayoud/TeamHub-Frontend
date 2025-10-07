@@ -119,27 +119,9 @@
 }
 
 
-@media (max-width: 768px) {
-  .tasks-page{
-    margin-top: 20vh;
-  }
-}
-
-@media (max-width: 600px) {
-   .tasks-page{
-    margin-top: 22vh;
-  }
-}
-
-@media (max-width: 500px) {
-   .tasks-page{
-    margin-top: 25vh;
-  }
-}
-
-@media (max-width: 339px) {
-   .tasks-page{
-    margin-top: 35vh;
-  }
+@media (min-width:576px){
+    .container{
+        margin-top: 10vh;
+    }
 }
 
