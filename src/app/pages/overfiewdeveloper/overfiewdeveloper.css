@@ -3,7 +3,6 @@
 
 .dashboard-wrapper {
   padding: 2vh 10px;
-
 }
 
 /* === Header Section === */
@@ -254,4 +253,10 @@
     flex-direction: column;
     align-items: center;
   }
+}
+
+@media (max-width: 576px) {
+.dashboard-wrapper {
+  padding: 0px 10px;
+}
 }

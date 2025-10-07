@@ -8,17 +8,9 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './menudeveloper.css',
 })
 export class Menudeveloper {
-  hamburger: HTMLElement | null = null;
-  navMenu: HTMLElement | null = null;
+  isMenuActive = false;
 
-  ngAfterViewInit() {
-    this.hamburger = document.getElementById('hamburger');
-    this.navMenu = document.getElementById('nav-menu');
-    if (this.hamburger && this.navMenu) {
-      this.hamburger.addEventListener('click', () => {
-        this.navMenu!.classList.toggle('active');
-        this.hamburger!.classList.toggle('active');
-      });
-    }
+  toggleMenu() {
+    this.isMenuActive = !this.isMenuActive;
   }
 }

@@ -51,6 +51,12 @@
   margin-left: 4vw;
 }
 
+.features.active{
+  display: flex;
+  padding: 50px 10px;
+  margin: 0 auto;
+}
+
 .feature-item {
   display: flex;
   align-items: center;
@@ -94,11 +100,21 @@
 
   .features {
     display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    background-color: white;
+    border-radius: 10px;
+    right: 40px;
+    padding: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 150px;
+    z-index: 1000;
+    margin: 0 auto;
   }
   button{
     display: none;
   }
-
   .menu h3{
     flex: 1;
   }
