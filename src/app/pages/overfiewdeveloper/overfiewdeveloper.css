@@ -1,0 +1,257 @@
+/* === General Styles === */
+
+
+.dashboard-wrapper {
+  padding: 2vh 10px;
+
+}
+
+/* === Header Section === */
+.all{
+  padding: 20px;
+  border: 2px solid #e7dddd;
+  border-radius: 20px;
+}
+.all h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+
+}
+
+.all p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* === Dashboard Overview === */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+  width: 200px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.card span {
+  font-size: 12px;
+  color: #666;
+}
+@media (max-width: 1058px) {
+  .dashboard {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dashboard .card {
+    width: 70%;
+  }
+
+}
+@media (max-width:600px){
+  .all{
+    margin-top: 5vh;
+  text-align: center;
+  }
+    .dashboard {
+      margin: 0 auto;
+      text-align: center;
+  }
+}
+/* === End Dashboard Overview === */
+
+/* === Task Section === */
+.task-container {
+  margin-top: 40px;
+  padding: 20px;
+  border: 2px solid #e7dddd;
+  border-radius: 20px;
+}
+
+.task-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.task-details {
+  display: flex;
+  gap: 8px;
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.priority {
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.priority.high { background-color: #ffc107; }
+.priority.medium { background-color: #17a2b8; }
+.priority.critical { background-color: #dc3545; }
+
+/* === Secondary Dashboard === */
+.all-dashboard {
+  margin-top: 60px;
+  padding: 20px;
+  border: 2px solid #e7dddd;
+  border-radius: 20px;
+}
+
+.dashboard-x {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.dashboard-x  .card {
+  width: 550px;
+}
+
+/* Activity & Deadlines */
+.subtitle {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #0d6efd;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.activity-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-title {
+  font-weight: 500;
+}
+
+.activity-time {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Deadlines */
+.deadline-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  transition: background 0.2s;
+}
+
+.deadline-card:hover {
+  background-color: #f9f9f9;
+}
+
+.deadline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.badge.red { background-color: #dc3545; }
+.badge.gray { background-color: #6c757d; }
+
+.deadline-date {
+  color: #777;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+@media (max-width:600px){
+  .dashboard-x  .card {
+    width: 85%;
+  }
+}
+
+/* === Responsive Design === */
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    width: 70%;
+  }
+
+  .dashboard-x {
+    flex-direction: column;
+    align-items: center;
+  }
+}

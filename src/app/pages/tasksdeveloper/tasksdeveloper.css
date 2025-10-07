@@ -1,0 +1,145 @@
+.tasks-page {
+  font-family: Arial, sans-serif;
+  color: #222;
+  padding: 0 40px;
+  background: #fff;
+}
+
+.tasks-page h2 {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.tasks-page p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.task-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.task-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.count {
+  background: #eee;
+  border-radius: 50%;
+  padding: 3px 9px;
+  font-size: 13px;
+}
+
+.task-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.badge.low {
+  background: #8bc34a;
+}
+
+.badge.medium {
+  background: #ffc107;
+  color: #222;
+}
+
+.badge.high {
+  background: #2196f3;
+}
+
+.badge.critical {
+  background: #e53935;
+}
+
+.task-card h3 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.task-card .category {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.task-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  font-size: 13px;
+}
+
+.avatar {
+  background: #ddd;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.icons span {
+  margin-left: 8px;
+  color: #555;
+}
+
+
+@media (max-width: 768px) {
+  .tasks-page{
+    margin-top: 20vh;
+  }
+}
+
+@media (max-width: 600px) {
+   .tasks-page{
+    margin-top: 22vh;
+  }
+}
+
+@media (max-width: 500px) {
+   .tasks-page{
+    margin-top: 25vh;
+  }
+}
+
+@media (max-width: 339px) {
+   .tasks-page{
+    margin-top: 35vh;
+  }
+}
+
