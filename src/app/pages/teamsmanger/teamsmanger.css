@@ -1,0 +1,124 @@
+.container-all {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  color: #222;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 30px;
+}
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  background-color: #f1f3f5;
+  color: #333;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.status.available {
+  background-color: #007bff;
+  color: white;
+}
+
+.status.busy {
+  background-color: #e9ecef;
+  color: #555;
+}
+
+.card-body h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.role {
+  color: #777;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.tasks {
+  color: #555;
+  font-size: 13px;
+}
+
+/* ✅ Mobile responsiveness */
+@media (max-width: 768px) {
+  .container-all {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .avatar {
+    width: 35px;
+    height: 35px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 15px;
+  }
+}

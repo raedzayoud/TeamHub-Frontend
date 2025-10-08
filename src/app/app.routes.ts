@@ -10,6 +10,8 @@ import { Payroll } from './pages/payroll/payroll';
 import { Managerdashboard } from './pages/managerdashboard/managerdashboard';
 import { Overviewmanager } from './pages/overviewmanager/overviewmanager';
 import { Projectmanager } from './projectmanager/projectmanager';
+import { Teamsmanger } from './pages/teamsmanger/teamsmanger';
+import { Leavemanager } from './pages/leavemanager/leavemanager';
 
 export const routes: Routes = [
   {
@@ -28,6 +30,8 @@ export const routes: Routes = [
     children: [
       { path: 'overviewmanager', component: Overviewmanager },
       { path: 'projectmanager', component: Projectmanager },
+      { path: 'teamsmanger', component: Teamsmanger },
+      { path: 'leavemanager', component: Leavemanager },
     ],
   },
 
