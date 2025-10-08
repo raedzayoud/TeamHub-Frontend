@@ -1,0 +1,64 @@
+<div class="all-container">
+  <div class="all">
+    <div class="menu-container">
+      <div class="menu">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          alt="Manager Icon"
+        />
+        <h3>Manager Portal</h3>
+
+        <div class="hamburger" id="hamburger" (click)="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="features" [class.active]="isMenuActive" id="nav-menu">
+          <!-- Overview -->
+          <div
+            class="feature-item"
+            routerLink="/developer/overfiewdeveloper"
+            routerLinkActive="active"
+          >
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Overview</span>
+          </div>
+
+          <!-- Projects -->
+          <div
+            class="feature-item"
+            routerLink="/developer/tasksdeveloper"
+            routerLinkActive="active"
+          >
+            <i class="fa-solid fa-diagram-project"></i>
+            <span>Projects</span>
+          </div>
+
+          <!-- Team -->
+          <div
+            class="feature-item"
+            routerLink="/developer/leavedeveloper"
+            routerLinkActive="active"
+          >
+            <i class="fa-solid fa-users"></i>
+            <span>Team</span>
+          </div>
+
+          <!-- Leave -->
+          <div
+            class="feature-item"
+            routerLink="/developer/payroll"
+            routerLinkActive="active"
+          >
+            <i class="fa-solid fa-plane-departure"></i>
+            <span>Leave</span>
+          </div>
+        </div>
+
+        <button>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
