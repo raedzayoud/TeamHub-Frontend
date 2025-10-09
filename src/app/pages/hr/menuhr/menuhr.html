@@ -1,0 +1,74 @@
+<div class="all-container">
+  <div class="all">
+    <div class="menu-container">
+      <div class="menu">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          alt="Manager Icon"
+        />
+        <h3>HR Portal</h3>
+
+        <div class="hamburger" id="hamburger" (click)="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="features" [class.active]="isMenuActive" id="nav-menu">
+          <!-- Overview -->
+          <div
+            class="feature-item"
+            routerLink="/hrdashborad/overviewhr"
+            routerLinkActive="active"
+          >
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>Overview</span>
+          </div>
+
+          <!-- Employees -->
+          <div
+            class="feature-item"
+            routerLink="/hrdashborad/employeehr"
+            routerLinkActive="active"
+          >
+            <i class="fa-solid fa-id-card"></i>
+            <span>Employees</span>
+          </div>
+
+          <!-- Leave -->
+          <div
+            class="feature-item"
+            routerLink="/hrdashborad/leavehr"
+            routerLinkActive="active"
+          >
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Leave</span>
+          </div>
+
+          <!-- Payroll -->
+          <div
+            class="feature-item"
+            routerLink="/hrdashborad/payrollhr"
+            routerLinkActive="active"
+          >
+            <i class="fa-solid fa-money-check-dollar"></i>
+            <span>Payroll</span>
+          </div>
+
+          <!-- Analytics -->
+          <div
+            class="feature-item"
+            routerLink="/hrdashborad/analytichr"
+            routerLinkActive="active"
+          >
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Analytics</span>
+          </div>
+        </div>
+
+        <button>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

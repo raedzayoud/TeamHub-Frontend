@@ -12,11 +12,17 @@ import { Overviewmanager } from './pages/overviewmanager/overviewmanager';
 import { Projectmanager } from './projectmanager/projectmanager';
 import { Teamsmanger } from './pages/teamsmanger/teamsmanger';
 import { Leavemanager } from './pages/leavemanager/leavemanager';
+import { Hrdashborad } from './pages/hr/hrdashborad/hrdashborad';
+import { Overviewhr } from './pages/hr/overviewhr/overviewhr';
+import { Employeehr } from './pages/hr/employeehr/employeehr';
+import { Leavehr } from './pages/hr/leavehr/leavehr';
+import { Payrollhr } from './pages/hr/payrollhr/payrollhr';
+import { Analytichr } from './pages/hr/analytichr/analytichr';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'managerdashboard/overviewmanager',
+    redirectTo: 'hrdashborad/overviewhr',
     pathMatch: 'full',
   },
 
@@ -32,6 +38,17 @@ export const routes: Routes = [
       { path: 'projectmanager', component: Projectmanager },
       { path: 'teamsmanger', component: Teamsmanger },
       { path: 'leavemanager', component: Leavemanager },
+    ],
+  },
+  {
+    path: 'hrdashborad',
+    component: Hrdashborad,
+    children: [
+      { path: 'overviewhr', component: Overviewhr },
+      { path: 'employeehr', component: Employeehr },
+      { path: 'leavehr', component: Leavehr },
+      { path: 'payrollhr', component: Payrollhr },
+      { path: 'analytichr', component: Analytichr },
     ],
   },
 

@@ -1,0 +1,93 @@
+<div class="container-all">
+  <div class="container">
+    <h1>Leave Management</h1>
+    <p class="subtitle">Review and approve leave requests</p>
+
+    <div class="tabs">
+      <button
+        class="tab"
+        [class.active]="activeTab === 'pending'"
+        (click)="setActive('pending')"
+      >
+        Pending
+      </button>
+      <button
+        class="tab"
+        [class.active]="activeTab === 'approved'"
+        (click)="setActive('approved')"
+      >
+        Approved
+      </button>
+      <button
+        class="tab"
+        [class.active]="activeTab === 'rejected'"
+        (click)="setActive('rejected')"
+      >
+        Rejected
+      </button>
+    </div>
+    <div *ngIf="activeTab === 'pending'">
+      <div class="card">
+        <div class="profile">
+          <div class="avatar">SJ</div>
+          <div class="info">
+            <h3>Sarah Johnson</h3>
+            <p class="role">Vacation</p>
+            <div class="details">
+              <p><strong>Duration:</strong> 5 days</p>
+              <p><strong>Dates:</strong> Dec 20 – Dec 24</p>
+            </div>
+            <p><strong>Reason:</strong></p>
+            <p>Family vacation</p>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="approve">✔ Approve</button>
+          <button class="reject">✖ Reject</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="activeTab === 'approved'">
+      <div class="card">
+        <div class="profile">
+          <div class="avatar">SJjjz</div>
+          <div class="info">
+            <h3>Sarah Johnson</h3>
+            <p class="role">Vacation</p>
+            <div class="details">
+              <p><strong>Duration:</strong> 5 days</p>
+              <p><strong>Dates:</strong> Dec 20 – Dec 24</p>
+            </div>
+            <p><strong>Reason:</strong></p>
+            <p>Family vacation</p>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="approve">✔ Approve</button>
+          <button class="reject">✖ Reject</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="activeTab === 'rejected'">
+      <div class="card">
+        <div class="profile">
+          <div class="avatar">SJAAA</div>
+          <div class="info">
+            <h3>Sarah Johnson</h3>
+            <p class="role">Vacation</p>
+            <div class="details">
+              <p><strong>Duration:</strong> 5 days</p>
+              <p><strong>Dates:</strong> Dec 20 – Dec 24</p>
+            </div>
+            <p><strong>Reason:</strong></p>
+            <p>Family vacation</p>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="approve">✔ Approve</button>
+          <button class="reject">✖ Reject</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
