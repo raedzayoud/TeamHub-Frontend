@@ -93,10 +93,38 @@
 
     <div class="section-header">
       <h2 class="section-title">Active Projects</h2>
-      <button class="btn-new">
+      <button (click)="toggleShow()" class="btn-new">
         <span>+</span>
         New Project
       </button>
+    </div>
+
+    <div class="add-project" *ngIf="isShown">
+      <div class="container-form">
+        <form class="project-form">
+          <div class="form-group">
+            <label for="projectName">Project Name</label>
+            <input
+              type="text"
+              id="projectName"
+              name="projectName"
+              placeholder="Enter project name"
+              required
+            />
+          </div>
+          <button type="submit" class="btn-submit">Add Project</button>
+          <div class="close" (click)="toggleShow()">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M6 6L14 14M6 14L14 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+        </form>
+      </div>
     </div>
 
     <div class="projects-grid">

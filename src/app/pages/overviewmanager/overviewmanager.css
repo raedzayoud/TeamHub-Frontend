@@ -81,6 +81,96 @@
     color: #000;
 }
 
+.add-project {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2000;
+  border-radius: 10px;
+}
+
+
+
+.add-project .container-form{
+  background: #fff; /* white form background */
+ border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  padding: 30px;
+
+}
+
+.project-form{
+  padding: 30px 40px;
+  border-radius: 16px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-around;
+ }
+
+.form-group label{
+  margin-top: 10px;
+}
+
+label{
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 20px;
+}
+
+
+.projectName{
+  display: flex;
+
+  flex-direction: column;
+}
+input[type="text"] {
+  padding: 12px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #4facfe;
+  outline: none;
+  box-shadow: 0 0 6px rgba(79, 172, 254, 0.5);
+}
+
+/* --- Button --- */
+.container-form button {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.container-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(79, 172, 254, 0.4);
+}
+
 .btn-new {
     background: #007aff;
     color: white;
@@ -94,6 +184,29 @@
     align-items: center;
     gap: 6px;
     transition: background 0.2s;
+}
+
+.close{
+  position: absolute;
+  top: 0;
+  right: 16px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  background: #f1f1f1;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close:hover {
+  background: #ff4d4d;
+  color: #fff;
 }
 
 .btn-new:hover {
