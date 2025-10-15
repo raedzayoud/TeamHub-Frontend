@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Menudeveloper } from '../menudeveloper/menudeveloper';
+import { Menudeveloper } from '../devlopers/menudeveloper/menudeveloper';
 
 @Component({
   selector: 'app-payroll',

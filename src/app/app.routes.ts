@@ -2,22 +2,23 @@ import { Routes } from '@angular/router';
 import { Login } from './pages/auth/login/login';
 import { Menu } from './pages/menu/menu';
 import { Landingpage } from './pages/landingpage/landingpage';
-import { Developer } from './pages/developer/developer';
-import { Tasksdeveloper } from './pages/tasksdeveloper/tasksdeveloper';
-import { Overfiewdeveloper } from './pages/overfiewdeveloper/overfiewdeveloper';
-import { Leavedeveloper } from './pages/leavedeveloper/leavedeveloper';
-import { Payroll } from './pages/payroll/payroll';
-import { Managerdashboard } from './pages/managerdashboard/managerdashboard';
-import { Overviewmanager } from './pages/overviewmanager/overviewmanager';
-import { Teamsmanger } from './pages/teamsmanger/teamsmanger';
-import { Leavemanager } from './pages/leavemanager/leavemanager';
+import { Managerdashboard } from './pages/manager/managerdashboard/managerdashboard';
+import { Overviewmanager } from './pages/manager/overviewmanager/overviewmanager';
+import { Projectmanager } from './pages/manager/projectmanager/projectmanager';
+import { Teamsmanger } from './pages/manager/teamsmanger/teamsmanger';
+import { Leavemanager } from './pages/manager/leavemanager/leavemanager';
 import { Hrdashborad } from './pages/hr/hrdashborad/hrdashborad';
 import { Overviewhr } from './pages/hr/overviewhr/overviewhr';
 import { Employeehr } from './pages/hr/employeehr/employeehr';
 import { Leavehr } from './pages/hr/leavehr/leavehr';
 import { Payrollhr } from './pages/hr/payrollhr/payrollhr';
 import { Analytichr } from './pages/hr/analytichr/analytichr';
-import { Projectmanager } from './pages/projectmanager/projectmanager';
+import { Developer } from './pages/devlopers/developer/developer';
+import { Tasksdeveloper } from './pages/devlopers/tasksdeveloper/tasksdeveloper';
+import { Overfiewdeveloper } from './pages/devlopers/overfiewdeveloper/overfiewdeveloper';
+import { Leavedeveloper } from './pages/devlopers/leavedeveloper/leavedeveloper';
+import { Payroll } from './pages/payroll/payroll';
+import { Taskseachproject } from './pages/manager/taskseachproject/taskseachproject';
 
 export const routes: Routes = [
   {
@@ -38,6 +39,7 @@ export const routes: Routes = [
       { path: 'projectmanager', component: Projectmanager },
       { path: 'teamsmanger', component: Teamsmanger },
       { path: 'leavemanager', component: Leavemanager },
+      { path: 'taskseachproject', component: Taskseachproject },
     ],
   },
   {

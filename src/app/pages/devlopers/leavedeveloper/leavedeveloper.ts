@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Menudeveloper } from '../menudeveloper/menudeveloper';
 import { NgIf } from '@angular/common';
 import {
   FormBuilder,
@@ -7,6 +6,7 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { Menudeveloper } from '../menudeveloper/menudeveloper';
 
 @Component({
   selector: 'app-leavedeveloper',
