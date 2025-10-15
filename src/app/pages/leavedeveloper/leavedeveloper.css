@@ -2,6 +2,137 @@
   color: gray;
 }
 
+.container-button{
+  display: flex;
+  justify-content: space-between;
+    align-items: center;
+}
+/* Conteneur principal du popup */
+.add-leave-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Conteneur du formulaire */
+.container-leave {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  width: 420px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+@media (max-width:576px){  /* smallDevice=>phone */
+  .container-leave {
+    width: 70vw;
+  }
+}
+
+.container-leave h3 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Labels */
+.container-leave label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Inputs, selects et textarea */
+.container-leave input[type="date"],
+.container-leave textarea {
+  width: 90%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+form .error{
+  color: red;
+  margin-bottom: 10px;
+}
+
+.container-leave select{
+   width: 95%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* Effet focus */
+.container-leave input[type="date"]:focus,
+.container-leave select:focus,
+.container-leave textarea:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Bouton de soumission */
+.submit-button {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #43a047;
+}
+
+/* Animation légère d’apparition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.Leave-button{
+  background:linear-gradient(#659bec,#377feb);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+.add-leave{
+  font-size: 20px;
+  margin-right: 8px;
+}
 
 .leave-management {
   font-family: Arial, sans-serif;

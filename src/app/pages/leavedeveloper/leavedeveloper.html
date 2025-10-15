@@ -1,8 +1,78 @@
 <app-menudeveloper></app-menudeveloper>
 <div class="Leav-Management">
-  <div class="container-title">
-    <h1>Leave Management</h1>
-    <p>Request and track your time off</p>
+  <div class="container-button">
+    <div class="container-title">
+      <h1>Leave Management</h1>
+      <p>Request and track your time off</p>
+    </div>
+    <button class="Leave-button" (click)="toggleAppear()">
+      <span class="add-leave">+</span> New Leave
+    </button>
+  </div>
+
+  <div
+    class="add-leave-container"
+    *ngIf="isAppear"
+    (click)="closeIfOutSide($event)"
+  >
+    <div class="container-leave" (click)="$event.stopPropagation()">
+      <h3>Request New Leave</h3>
+      <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()">
+        <label for="leave-type">Leave Type</label>
+        <select id="leave-type" formControlName="leaveType">
+          <option value="">-- Select Type --</option>
+          <option value="vacation">Vacation</option>
+          <option value="sick">Sick Leave</option>
+          <option value="personal">Personal</option>
+        </select>
+        <div
+          class="error"
+          *ngIf="
+            leaveForm.get('leaveType')?.touched &&
+            leaveForm.get('leaveType')?.hasError('required')
+          "
+        >
+          Leave type is required.
+        </div>
+
+        <label for="start-date">Start Date</label>
+        <input type="date" id="start-date" formControlName="startDate" />
+        <div
+          class="error"
+          *ngIf="
+            leaveForm.get('startDate')?.touched &&
+            leaveForm.get('startDate')?.hasError('required')
+          "
+        >
+          Start date is required.
+        </div>
+
+        <label for="end-date">End Date</label>
+        <input type="date" id="end-date" formControlName="endDate" />
+        <div
+          class="error"
+          *ngIf="
+            leaveForm.get('endDate')?.touched &&
+            leaveForm.get('endDate')?.hasError('required')
+          "
+        >
+          End date is required.
+        </div>
+
+        <label for="reason">Reason</label>
+        <textarea id="reason" formControlName="reason" rows="3"></textarea>
+        <div class="error" *ngIf="leaveForm.get('reason')?.touched">
+          <span *ngIf="leaveForm.get('reason')?.hasError('required')"
+            >Reason is required.</span
+          >
+          <span *ngIf="leaveForm.get('reason')?.hasError('minlength')"
+            >Reason must be at least 5 characters.</span
+          >
+        </div>
+
+        <button type="submit" class="submit-button">Submit Request</button>
+      </form>
+    </div>
   </div>
 
   <!-- Leave Summary Section -->

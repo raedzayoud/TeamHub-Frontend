@@ -9,7 +9,6 @@ import { Leavedeveloper } from './pages/leavedeveloper/leavedeveloper';
 import { Payroll } from './pages/payroll/payroll';
 import { Managerdashboard } from './pages/managerdashboard/managerdashboard';
 import { Overviewmanager } from './pages/overviewmanager/overviewmanager';
-import { Projectmanager } from './projectmanager/projectmanager';
 import { Teamsmanger } from './pages/teamsmanger/teamsmanger';
 import { Leavemanager } from './pages/leavemanager/leavemanager';
 import { Hrdashborad } from './pages/hr/hrdashborad/hrdashborad';
@@ -18,6 +17,7 @@ import { Employeehr } from './pages/hr/employeehr/employeehr';
 import { Leavehr } from './pages/hr/leavehr/leavehr';
 import { Payrollhr } from './pages/hr/payrollhr/payrollhr';
 import { Analytichr } from './pages/hr/analytichr/analytichr';
+import { Projectmanager } from './pages/projectmanager/projectmanager';
 
 export const routes: Routes = [
   {
