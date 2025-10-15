@@ -6,7 +6,7 @@
         <h1>Employee Directory</h1>
         <p>Manage your team members</p>
       </div>
-      <button class="add-btn">
+      <button class="add-btn" (click)="showForm()">
         <i class="fa-solid fa-user-plus"></i> Add Employee
       </button>
     </div>
@@ -24,65 +24,66 @@
 
     <!-- Employee list -->
     <div class="employee-list">
-      <div class="employee-card">
+      <div class="employee-card" *ngFor="let emp of employees">
         <div class="employee-left">
-          <div class="avatar">SJ</div>
+          <div class="avatar">{{ emp.initials }}</div>
           <div>
-            <h3>Sarah Johnson</h3>
-            <p>Senior Developer</p>
+            <h3>{{ emp.name }}</h3>
+            <p>{{ emp.role }}</p>
           </div>
         </div>
         <div class="employee-right">
-          <div class="department">Engineering</div>
-          <span class="status active">Active</span>
-          <i class="fa-solid fa-ellipsis-vertical"></i>
+          <div class="department">{{ emp.department }}</div>
+          <span class="status active">{{ emp.status }}</span>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="employee-card">
-        <div class="employee-left">
-          <div class="avatar">MC</div>
-          <div>
-            <h3>Michael Chen</h3>
-            <p>Product Manager</p>
-          </div>
+  <!-- Add Employee Modal -->
+  <div
+    class="add-Employee-container"
+    *ngIf="isAppear"
+    (click)="closeIfOutSide($event)"
+  >
+    <div class="container-Employee" (click)="$event.stopPropagation()">
+      <h3>Add New Employee</h3>
+      <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="name"
+            placeholder="Enter full name"
+            required
+          />
         </div>
-        <div class="employee-right">
-          <div class="department">Product</div>
-          <span class="status active">Active</span>
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </div>
-      </div>
 
-      <div class="employee-card">
-        <div class="employee-left">
-          <div class="avatar">ED</div>
-          <div>
-            <h3>Emma Davis</h3>
-            <p>UX Designer</p>
-          </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            placeholder="Enter email"
+            required
+          />
         </div>
-        <div class="employee-right">
-          <div class="department">Design</div>
-          <span class="status active">Active</span>
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </div>
-      </div>
 
-      <div class="employee-card">
-        <div class="employee-left">
-          <div class="avatar">JW</div>
-          <div>
-            <h3>James Wilson</h3>
-            <p>DevOps Engineer</p>
-          </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            formControlName="password"
+            placeholder="Enter password"
+            required
+          />
         </div>
-        <div class="employee-right">
-          <div class="department">Engineering</div>
-          <span class="status active">Active</span>
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </div>
-      </div>
+
+        <button type="submit" class="submit-button">Add Employee</button>
+      </form>
     </div>
   </div>
 </div>
