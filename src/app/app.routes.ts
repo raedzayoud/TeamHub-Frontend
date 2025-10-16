@@ -17,8 +17,8 @@ import { Developer } from './pages/devlopers/developer/developer';
 import { Tasksdeveloper } from './pages/devlopers/tasksdeveloper/tasksdeveloper';
 import { Overfiewdeveloper } from './pages/devlopers/overfiewdeveloper/overfiewdeveloper';
 import { Leavedeveloper } from './pages/devlopers/leavedeveloper/leavedeveloper';
-import { Payroll } from './pages/payroll/payroll';
 import { Taskseachproject } from './pages/manager/taskseachproject/taskseachproject';
+import { Payroll } from './pages/devlopers/payroll/payroll';
 
 export const routes: Routes = [
   {
