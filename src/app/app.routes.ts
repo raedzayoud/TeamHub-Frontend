@@ -6,7 +6,6 @@ import { Managerdashboard } from './pages/manager/managerdashboard/managerdashbo
 import { Overviewmanager } from './pages/manager/overviewmanager/overviewmanager';
 import { Projectmanager } from './pages/manager/projectmanager/projectmanager';
 import { Teamsmanger } from './pages/manager/teamsmanger/teamsmanger';
-import { Leavemanager } from './pages/manager/leavemanager/leavemanager';
 import { Hrdashborad } from './pages/hr/hrdashborad/hrdashborad';
 import { Overviewhr } from './pages/hr/overviewhr/overviewhr';
 import { Employeehr } from './pages/hr/employeehr/employeehr';
@@ -38,7 +37,6 @@ export const routes: Routes = [
       { path: 'overviewmanager', component: Overviewmanager },
       { path: 'projectmanager', component: Projectmanager },
       { path: 'teamsmanger', component: Teamsmanger },
-      { path: 'leavemanager', component: Leavemanager },
       { path: 'taskseachproject', component: Taskseachproject },
     ],
   },

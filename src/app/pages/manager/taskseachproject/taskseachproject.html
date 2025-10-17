@@ -1,8 +1,44 @@
 <div class="tasks-container-all">
   <div class="tasks-container">
-    <div class="header">
-      <h1>Project Tasks</h1>
-      <p>View and manage tasks assigned to each project</p>
+    <div class="header-container">
+      <div class="header">
+        <h1>Project Tasks</h1>
+        <p>View and manage tasks assigned to each project</p>
+      </div>
+      <button (click)="toggleAppear()">
+        <span class="plus">+</span> New Task
+      </button>
+    </div>
+    <!--  private String name;
+    private int idDeveloper;
+   private int idProject; -->
+    <div class="add-task-container" *ngIf="appear">
+      <div class="add-task-form">
+        <h2>Add New Task</h2>
+        <form>
+          <label for="task-name">Task Name</label>
+          <input type="text" id="task-name" name="task-name" />
+
+          <label for="developer">Assign To</label>
+          <select name="developer" id="developer">
+            <option value="">Select a devloper</option>
+            <option value="">Raed</option>
+            <option value="">Mohammed</option>
+            <option value="">Fourat</option>
+          </select>
+
+          <label for="project">Projects</label>
+          <select name="project" id="project">
+            <option value="">Select a project</option>
+            <option value="">Mobile app</option>
+            <option value="">Web app</option>
+          </select>
+
+          <div class="task-add">
+            <button class="add-task" type="submit">Add Task</button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <div class="project">
