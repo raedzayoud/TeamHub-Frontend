@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { Login } from './pages/auth/login/login';
 import { Menu } from './pages/menu/menu';
 import { Landingpage } from './pages/landingpage/landingpage';
 import { Managerdashboard } from './pages/manager/managerdashboard/managerdashboard';
@@ -18,6 +17,7 @@ import { Overfiewdeveloper } from './pages/devlopers/overfiewdeveloper/overfiewd
 import { Leavedeveloper } from './pages/devlopers/leavedeveloper/leavedeveloper';
 import { Taskseachproject } from './pages/manager/taskseachproject/taskseachproject';
 import { Payroll } from './pages/devlopers/payroll/payroll';
+import { Login } from './pages/auth/login/login';
 
 export const routes: Routes = [
   {

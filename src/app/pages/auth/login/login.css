@@ -8,6 +8,13 @@
       margin: 0;
     }
 
+    .error {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+
     .login-container {
       background: white;
       padding: 30px;
@@ -16,6 +23,14 @@
       width: 350px;
       text-align: center;
     }
+
+
+    @media (max-width:576px){
+   .login-container {
+    width: 70%;
+   }
+}
+
 
     .login-container img {
       width: 50px;
