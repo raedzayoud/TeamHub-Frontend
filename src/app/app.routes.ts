@@ -22,7 +22,7 @@ import { Login } from './pages/auth/login/login';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'hrdashborad/overviewhr',
+    redirectTo: '/landingpage',
     pathMatch: 'full',
   },
 

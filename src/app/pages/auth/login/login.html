@@ -68,10 +68,12 @@
           Password must be at least 6 characters.
         </div>
       </div>
-
-      <button type="submit" class="login-btn">
-        {{ loading ? "Signing in..." : "Sign in" }}
-      </button>
+      <div *ngIf="loading">
+        <button type="submit" class="login-btn-disabled">Signing in...</button>
+      </div>
+      <div *ngIf="!loading">
+        <button type="submit" class="login-btn">Sign in</button>
+      </div>
     </form>
   </div>
 </div>

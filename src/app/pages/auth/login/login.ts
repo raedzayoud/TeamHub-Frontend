@@ -46,46 +46,45 @@ export class Login implements OnInit {
       return;
     }
 
-    this.loading = true;
-
+    this.loading = true; // show loader
     const { email, password } = this.loginForm.value;
-    this.authService.login(email, password).subscribe({
-      next: (response: any) => {
-        this.loading = false;
 
-        // ✅ Handle successful login
-        localStorage.setItem('token', response.token);
-        localStorage.setItem('role', response.role);
+    setTimeout(() => {
+      this.authService.login(email, password).subscribe({
+        next: (response: any) => {
+          this.loading = false;
 
-        if (response.role === 'MANAGER') {
-          this.router.navigate(['/managerdashboard']);
-        } else if (response.role === 'HR') {
-          this.router.navigate(['/hrdashboard']);
-        } else {
-          this.router.navigate(['/developer']);
-        }
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('role', response.role);
 
-        this.snackBar.open('✅ Login successful!', 'Close', {
-          duration: 2000,
-          verticalPosition: 'top',
-          panelClass: ['success-snackbar'],
-        });
-      },
+          if (response.role === 'MANAGER') {
+            this.router.navigate(['/managerdashboard']);
+          } else if (response.role === 'HR') {
+            this.router.navigate(['/hrdashboard']);
+          } else {
+            this.router.navigate(['/developer']);
+          }
 
-      error: (error) => {
-        this.loading = false;
-        console.error('Error Response:', error);
+          this.snackBar.open('✅ Login successful!', 'Close', {
+            duration: 2000,
+            verticalPosition: 'top',
+            panelClass: ['success-snackbar'],
+          });
+        },
+        error: (error) => {
+          this.loading = false;
+          console.error('Error Response:', error);
 
-        // ✅ Show backend error message
-        const message =
-          error?.error?.message || 'Login failed. Please try again.';
+          const message =
+            error?.error?.message || 'Login failed. Please try again.';
 
-        this.snackBar.open(message, 'Close', {
-          duration: 3000,
-          verticalPosition: 'top',
-          panelClass: ['error-snackbar'],
-        });
-      },
-    });
+          this.snackBar.open(message, 'Close', {
+            duration: 3000,
+            verticalPosition: 'top',
+            panelClass: ['error-snackbar'],
+          });
+        },
+      });
+    }, 500);
   }
 }
