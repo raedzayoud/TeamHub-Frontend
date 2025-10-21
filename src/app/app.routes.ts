@@ -38,6 +38,7 @@ export const routes: Routes = [
       { path: 'projectmanager', component: Projectmanager },
       { path: 'teamsmanger', component: Teamsmanger },
       { path: 'taskseachproject', component: Taskseachproject },
+      { path: '', redirectTo: 'overviewmanager', pathMatch: 'full' },
     ],
   },
   {
@@ -49,6 +50,7 @@ export const routes: Routes = [
       { path: 'leavehr', component: Leavehr },
       { path: 'payrollhr', component: Payrollhr },
       { path: 'analytichr', component: Analytichr },
+      { path: '', redirectTo: 'overviewhr', pathMatch: 'full' },
     ],
   },
 
