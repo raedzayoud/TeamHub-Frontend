@@ -18,4 +18,14 @@ export class ManagerService {
     });
     return this.http.get(projectManager, { headers: headers });
   }
+
+  getDetailsInfoManager() {
+    const managerInfo = this.baseUrl + 'v1/manager/details';
+    const token = localStorage.getItem('token') || '';
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.get(managerInfo, { headers: headers });
+  }
 }
