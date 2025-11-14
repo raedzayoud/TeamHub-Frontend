@@ -37,7 +37,7 @@ export const routes: Routes = [
       { path: 'overviewmanager', component: Overviewmanager },
       { path: 'projectmanager', component: Projectmanager },
       { path: 'teamsmanger', component: Teamsmanger },
-      { path: 'taskseachproject', component: Taskseachproject },
+      { path: 'taskseachproject/:id', component: Taskseachproject },
       { path: '', redirectTo: 'overviewmanager', pathMatch: 'full' },
     ],
   },

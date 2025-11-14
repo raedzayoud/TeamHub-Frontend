@@ -28,4 +28,39 @@ export class ManagerService {
     });
     return this.http.get(managerInfo, { headers: headers });
   }
+
+  createProject(nameProject: string) {
+    const createProjectUrl = this.baseUrl + 'v1/project/';
+    const token = localStorage.getItem('token') || '';
+    const body = {
+      name: nameProject,
+      id_manager: localStorage.getItem('idManager'),
+    };
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.post(createProjectUrl, body, { headers: headers });
+  }
+
+  getAllDevelopersByManager(managerId: number) {
+    const developersManager =
+      this.baseUrl + 'v1/manager/developers/' + managerId;
+    const token = localStorage.getItem('token') || '';
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.get(developersManager, { headers: headers });
+  }
+
+  geTasksByProjectId(projectId: number) {
+    const tasksByProjectUrl = this.baseUrl + `v1/task/projet/${projectId}`;
+    const token = localStorage.getItem('token') || '';
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.get(tasksByProjectUrl, { headers: headers });
+  }
 }

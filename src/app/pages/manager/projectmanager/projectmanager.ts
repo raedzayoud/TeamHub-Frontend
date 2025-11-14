@@ -11,15 +11,16 @@ import { NgFor } from '@angular/common';
   styleUrl: './projectmanager.css',
 })
 export class Projectmanager implements OnInit {
-  projects: String[] = [];
+  projects: { id: number; name: string }[] = [];
+
   constructor(private router: Router, private managerService: ManagerService) {}
 
   ngOnInit(): void {
     this.getProjectsByManager();
   }
 
-  gotoTask() {
-    this.router.navigate(['/managerdashboard/taskseachproject']);
+  gotoTask(projectId: number) {
+    this.router.navigate(['/managerdashboard/taskseachproject', projectId]);
   }
 
   getProjectsByManager() {
@@ -27,7 +28,10 @@ export class Projectmanager implements OnInit {
       .getAllProjectsByManager(Number(localStorage.getItem('idManager')))
       .subscribe({
         next: (data: any) => {
-          this.projects = data.projects.map((p: any) => p.name);
+          this.projects = data.projects.map((p: any) => ({
+            id: p.id,
+            name: p.name,
+          }));
         },
         error: (err) => {
           console.error('Error fetching projects:', err);

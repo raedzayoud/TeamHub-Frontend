@@ -119,8 +119,14 @@
 
 .form-group {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
  }
+
+ .form-group .error {
+  margin-top: 4px;
+  font-size: 15px;
+  color: #ff5b5b;
+}
 
 .form-group label{
   margin-top: 10px;
@@ -136,7 +142,6 @@ label{
 
 .projectName{
   display: flex;
-
   flex-direction: column;
 }
 input[type="text"] {
@@ -419,5 +424,6 @@ input[type="text"]:focus {
   font-size: 13px;
   color: #777;
 }
+
 
 
