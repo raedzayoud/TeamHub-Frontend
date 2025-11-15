@@ -14,4 +14,8 @@
       <button (click)="gotoTask(project.id)" class="details">Details</button>
     </div>
   </div>
+
+  <div *ngIf="projects.length === 0" class="no-projects">
+    There is no project available
+  </div>
 </div>

@@ -1,5 +1,6 @@
 <div class="tasks-container-all">
   <div class="tasks-container">
+    <!-- Header -->
     <div class="header-container">
       <div class="header">
         <h1>Project Tasks</h1>
@@ -9,9 +10,8 @@
         <span class="plus">+</span> New Task
       </button>
     </div>
-    <!--  private String name;
-    private int idDeveloper;
-   private int idProject; -->
+
+    <!-- Add Task Form -->
     <div class="add-task-container" *ngIf="appear">
       <div class="add-task-form">
         <h2>Add New Task</h2>
@@ -21,17 +21,17 @@
 
           <label for="developer">Assign To</label>
           <select name="developer" id="developer">
-            <option value="">Select a devloper</option>
-            <option value="">Raed</option>
-            <option value="">Mohammed</option>
-            <option value="">Fourat</option>
+            <option value="">Select a developer</option>
+            <option value="Raed Zayoud">Raed Zayoud</option>
+            <option value="Mohammed Ali">Mohammed Ali</option>
+            <option value="Fourat Toumi">Fourat Toumi</option>
           </select>
 
           <label for="project">Projects</label>
           <select name="project" id="project">
             <option value="">Select a project</option>
-            <option value="">Mobile app</option>
-            <option value="">Web app</option>
+            <option value="mobile-app">Mobile App</option>
+            <option value="web-app">Web App</option>
           </select>
 
           <div class="task-add">
@@ -41,48 +41,23 @@
       </div>
     </div>
 
-    <div class="project">
+    <!-- Task List -->
+    <div class="project" *ngIf="tasks.length > 0">
       <div class="task-list">
-        <div class="task-card">
-          <h3>Update Login UI</h3>
-          <p>Redesign the login screen with the new color palette</p>
+        <div class="task-card" *ngFor="let task of tasks">
+          <h3>{{ task.name }}</h3>
+          <!-- <p>{{ task.description }}</p> -->
           <div class="task-footer">
-            <span class="assignee">👤 Raed Zayoud</span>
-            <span class="status">In Progress</span>
-          </div>
-        </div>
-
-        <div class="task-card">
-          <h3>Integrate Firebase Auth</h3>
-          <p>Implement sign-in with email and Google</p>
-          <div class="task-footer">
-            <span class="assignee">👤 Mohammed Ali</span>
-            <span class="status">Pending</span>
+            <span class="assignee">👤 raed</span>
+            <span class="status">{{ task.status }}</span>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="project">
-      <div class="task-list">
-        <div class="task-card">
-          <h3>Create Sales Chart</h3>
-          <p>Visualize monthly revenue using Recharts</p>
-          <div class="task-footer">
-            <span class="assignee">👤 Assil Barhoumi</span>
-            <span class="status">Completed</span>
-          </div>
-        </div>
-
-        <div class="task-card">
-          <h3>Optimize Queries</h3>
-          <p>Improve backend API response time</p>
-          <div class="task-footer">
-            <span class="assignee">👤 Fourat Toumi</span>
-            <span class="status">In Progress</span>
-          </div>
-        </div>
-      </div>
+    <!-- No tasks message -->
+    <div class="error" *ngIf="tasks.length === 0">
+      <p>No tasks found for this project.</p>
     </div>
   </div>
 </div>

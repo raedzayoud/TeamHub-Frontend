@@ -92,6 +92,13 @@ h2 {
   font-size: 13px;
 }
 
+.no-developers{
+  text-align: center;
+  color: #888;
+  font-size: 18px;
+  margin-top: 50px;
+}
+
 /* ✅ Mobile responsiveness */
 @media (max-width: 768px) {
   .container-all {

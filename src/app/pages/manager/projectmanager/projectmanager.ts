@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { ManagerService } from '../../../services/api/manager/manager';
-import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-projectmanager',
-  imports: [RouterLink, NgFor],
+  imports: [RouterLink, CommonModule],
   templateUrl: './projectmanager.html',
   styleUrl: './projectmanager.css',
 })
