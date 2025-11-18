@@ -23,8 +23,8 @@
             ></path>
           </svg>
         </div>
-        <div class="stat-number">34</div>
-        <div class="stat-description">Across 5 projects</div>
+        <div class="stat-number">{{ sumTask }}</div>
+        <div class="stat-description">Across Different projects</div>
       </div>
 
       <div class="stat-card">
@@ -44,7 +44,7 @@
             ></path>
           </svg>
         </div>
-        <div class="stat-number">18</div>
+        <div class="stat-number">{{ taskCounts.inprogress }}</div>
         <div class="stat-description">Being worked on</div>
       </div>
 
@@ -65,7 +65,7 @@
             ></path>
           </svg>
         </div>
-        <div class="stat-number">142</div>
+        <div class="stat-number">{{ taskCounts.done }}</div>
         <div class="stat-description">This month</div>
       </div>
 

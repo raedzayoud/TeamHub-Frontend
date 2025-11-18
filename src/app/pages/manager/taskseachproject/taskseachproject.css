@@ -74,6 +74,7 @@
   width: 400px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   animation: fadeIn 0.3s ease-in-out;
+  position: relative;
 }
 
 .add-task-form h2 {
@@ -220,11 +221,19 @@
 
 .error {
   color: #888;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 17px;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
   z-index: 1000;
 }
 
+.close{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 18px;
+}
+.close:hover{
+  color: red;
+}

@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { ManagerService } from '../../../services/api/manager/manager';
+import { TaskCount } from '../../../services/model/taskCount';
 
 @Component({
   selector: 'app-overviewmanager',
@@ -16,8 +17,16 @@ import { ManagerService } from '../../../services/api/manager/manager';
   standalone: true,
 })
 export class Overviewmanager implements OnInit {
-  isShown: boolean = false;
+  isShown = false;
   projectForm!: FormGroup;
+
+  taskCounts: TaskCount = {
+    todo: 0,
+    inprogress: 0,
+    done: 0,
+  };
+
+  sumTask = 0;
 
   constructor(private fb: FormBuilder, private mangerService: ManagerService) {}
 
@@ -25,9 +34,11 @@ export class Overviewmanager implements OnInit {
     this.projectForm = this.fb.group({
       projectName: ['', [Validators.required, Validators.minLength(3)]],
     });
+
+    this.getTaskTypeCount();
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.projectForm.invalid) {
       this.projectForm.markAllAsTouched();
       return;
@@ -38,6 +49,7 @@ export class Overviewmanager implements OnInit {
     this.mangerService.createProject(projectName).subscribe({
       next: (response) => {
         console.log('Project created successfully:', (response as any).success);
+        this.toggleShow();
       },
       error: (error) => {
         console.error('Error creating project:', error);
@@ -45,7 +57,25 @@ export class Overviewmanager implements OnInit {
     });
   }
 
-  toggleShow() {
+  getTaskTypeCount(): void {
+    this.mangerService.getAllDifferentTasksStatus().subscribe({
+      next: (data: any) => {
+        this.taskCounts = data.counts;
+
+        this.sumTask =
+          this.taskCounts.todo +
+          this.taskCounts.inprogress +
+          this.taskCounts.done;
+
+        console.log('Task counts fetched:', this.taskCounts);
+      },
+      error: (error) => {
+        console.error('Error fetching task counts:', error);
+      },
+    });
+  }
+
+  toggleShow(): void {
     this.isShown = !this.isShown;
   }
 }

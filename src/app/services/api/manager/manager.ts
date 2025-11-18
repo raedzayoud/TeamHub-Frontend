@@ -63,4 +63,34 @@ export class ManagerService {
     });
     return this.http.get(tasksByProjectUrl, { headers: headers });
   }
+
+  getAllDifferentTasksStatus() {
+    const tasksStatusUrl =
+      this.baseUrl + `v1/manager/counts/${localStorage.getItem('idManager')}`;
+    const token = localStorage.getItem('token') || '';
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.get(tasksStatusUrl, { headers: headers });
+  }
+
+  createTask(name: string, idDeveloper: number, idProject: number) {
+    const createTaskUrl = this.baseUrl + 'v1/task/';
+    const token = localStorage.getItem('token') || '';
+
+    const body = {
+      name: name,
+      idDeveloper: idDeveloper,
+      status: 'TODO',
+      idProject: idProject,
+    };
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.post(createTaskUrl, body, { headers: headers });
+  }
 }

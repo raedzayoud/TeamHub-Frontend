@@ -11,7 +11,6 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/api/auth/auth';
 import { ManagerService } from '../../../services/api/manager/manager';
-import { ModelManager } from '../../../services/model/manager';
 
 @Component({
   selector: 'app-login',

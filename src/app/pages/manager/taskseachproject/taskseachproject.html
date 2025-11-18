@@ -15,23 +15,23 @@
     <div class="add-task-container" *ngIf="appear">
       <div class="add-task-form">
         <h2>Add New Task</h2>
-        <form>
+        <div (click)="toggleAppear()" class="close">X</div>
+
+        <form (ngSubmit)="createTask()">
           <label for="task-name">Task Name</label>
-          <input type="text" id="task-name" name="task-name" />
+          <input
+            type="text"
+            id="task-name"
+            [(ngModel)]="nameTask"
+            name="taskName"
+          />
 
           <label for="developer">Assign To</label>
-          <select name="developer" id="developer">
-            <option value="">Select a developer</option>
-            <option value="Raed Zayoud">Raed Zayoud</option>
-            <option value="Mohammed Ali">Mohammed Ali</option>
-            <option value="Fourat Toumi">Fourat Toumi</option>
-          </select>
-
-          <label for="project">Projects</label>
-          <select name="project" id="project">
-            <option value="">Select a project</option>
-            <option value="mobile-app">Mobile App</option>
-            <option value="web-app">Web App</option>
+          <select [(ngModel)]="idDeveloper" name="developer" id="developer">
+            <option value="Select a developer">Select a developer</option>
+            <option *ngFor="let dev of developer" [value]="dev.id">
+              {{ dev.nameDeveloper }}
+            </option>
           </select>
 
           <div class="task-add">
