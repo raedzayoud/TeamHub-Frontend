@@ -1,42 +1,20 @@
 <app-menudeveloper></app-menudeveloper>
+
 <div class="tasks-page">
   <h2>My Tasks</h2>
   <p>View and manage your assigned tasks</p>
 
-  <div class="cards">
-    <h4>Design a new landing page</h4>
+  <div class="cards" *ngFor="let t of tasks">
+    <h4>{{ t }}</h4>
     <hr />
+
     <select name="tasks" id="">
       <option value="">TODO</option>
       <option value="">INPROGRESS</option>
       <option value="">DONE</option>
     </select>
   </div>
-  <div class="cards">
-    <h4>Design a new landing page</h4>
-    <hr />
-    <select name="tasks" id="">
-      <option value="">TODO</option>
-      <option value="">INPROGRESS</option>
-      <option value="">DONE</option>
-    </select>
-  </div>
-  <div class="cards">
-    <h4>Design a new landing page</h4>
-    <hr />
-    <select name="tasks" id="">
-      <option value="">TODO</option>
-      <option value="">INPROGRESS</option>
-      <option value="">DONE</option>
-    </select>
-  </div>
-  <div class="cards">
-    <h4>Design a new landing page</h4>
-    <hr />
-    <select name="tasks" id="">
-      <option value="">TODO</option>
-      <option value="">INPROGRESS</option>
-      <option value="">DONE</option>
-    </select>
+  <div class="error" *ngIf="tasks.length == 0">
+    <h3>No tasks assigned yet</h3>
   </div>
 </div>

@@ -18,8 +18,7 @@ export class Taskseachproject {
 
   tasks: Task[] = [];
   nameTask = '';
-  idDeveloper = 0;
-
+  idDeveloper: any = '';
   developer: DeveloperManager[] = [];
 
   constructor(
@@ -62,19 +61,37 @@ export class Taskseachproject {
   }
 
   createTask() {
-    console.log('Creating task with name:', this.nameTask);
-    console.log('Assigning to developer ID:', this.idDeveloper);
-    console.log('For project ID:', this.projectId);
+    // Validation
+    if (!this.idDeveloper || this.idDeveloper === '') {
+      alert('Please select a developer');
+      return;
+    }
+
+    if (!this.nameTask || this.nameTask.trim() === '') {
+      alert('Please enter a task name');
+      return;
+    }
+
     this.managerService
       .createTask(this.nameTask, this.idDeveloper, this.projectId)
       .subscribe({
         next: (data: any) => {
           console.log('Task created successfully:', data);
+          this.getTasksByProjectId();
+          this.resetForm();
+          this.toggleAppear();
         },
         error: (err) => {
           console.error('Error creating task:', err);
+          alert('Failed to create task. Please try again.');
+          // this.resetForm();
         },
       });
+  }
+
+  resetForm() {
+    this.nameTask = '';
+    this.idDeveloper = '';
   }
 
   toggleAppear() {

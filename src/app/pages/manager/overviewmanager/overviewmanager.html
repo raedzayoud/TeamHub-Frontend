@@ -44,7 +44,7 @@
             ></path>
           </svg>
         </div>
-        <div class="stat-number">{{ taskCounts.inprogress }}</div>
+        <div class="stat-number">{{ taskCounts.inprogress || 0 }}</div>
         <div class="stat-description">Being worked on</div>
       </div>
 
@@ -65,7 +65,7 @@
             ></path>
           </svg>
         </div>
-        <div class="stat-number">{{ taskCounts.done }}</div>
+        <div class="stat-number">{{ taskCounts.done || 0 }}</div>
         <div class="stat-description">This month</div>
       </div>
 

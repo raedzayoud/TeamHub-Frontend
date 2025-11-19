@@ -66,6 +66,13 @@
   box-shadow: 0 0 5px rgb(0, 89, 255);;
 }
 
+.error{
+  text-align: center;
+  color: #888;
+  margin-top: 50px;
+  font-size: 20px;
+}
+
 
 
 @media (min-width:576px){

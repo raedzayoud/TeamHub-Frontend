@@ -11,6 +11,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/api/auth/auth';
 import { ManagerService } from '../../../services/api/manager/manager';
+import { DeveloperService } from '../../../services/api/developer/developer';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,8 @@ export class Login implements OnInit {
     private authService: AuthService,
     private snackBar: MatSnackBar,
     private router: Router,
-    private managerService: ManagerService
+    private managerService: ManagerService,
+    private developerService: DeveloperService
   ) {}
 
   ngOnInit(): void {
@@ -79,6 +81,29 @@ export class Login implements OnInit {
         } else if (response.role === 'HR') {
           this.router.navigate(['/hrdashboard']);
         } else {
+          this.developerService.getDetailsDeveloper().subscribe({
+            next: (data: any) => {
+              const developer = data.detailsDeveloper;
+              localStorage.setItem('emailDeveloper', developer.email || '');
+              localStorage.setItem(
+                'idDeveloper',
+                developer.idDeveloper.toString()
+              );
+              localStorage.setItem('idUser', developer.idUser.toString());
+              localStorage.setItem('nameDeveloper', developer.name || '');
+              localStorage.setItem(
+                'idManager',
+                developer.idManager.toString() || ''
+              );
+            },
+            error: () => {
+              this.snackBar.open('Failed to load developer info.', 'Close', {
+                duration: 3000,
+                verticalPosition: 'top',
+                panelClass: ['error-snackbar'],
+              });
+            },
+          });
           this.router.navigate(['/developer']);
         }
 

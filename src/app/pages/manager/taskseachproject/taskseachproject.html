@@ -25,10 +25,9 @@
             [(ngModel)]="nameTask"
             name="taskName"
           />
-
           <label for="developer">Assign To</label>
           <select [(ngModel)]="idDeveloper" name="developer" id="developer">
-            <option value="Select a developer">Select a developer</option>
+            <option value="">Select a developer</option>
             <option *ngFor="let dev of developer" [value]="dev.id">
               {{ dev.nameDeveloper }}
             </option>
