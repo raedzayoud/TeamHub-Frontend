@@ -44,4 +44,17 @@ export class DeveloperService {
     });
     return this.http.get(getSalary, { headers: headers });
   }
+
+  getTaskType(idDeveloper: number) {
+    const getTaskTypeUrl =
+      this.baseUrl + `v1/developer/tasktype/${idDeveloper}`;
+
+    const token = localStorage.getItem('token') || '';
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.get(getTaskTypeUrl, { headers: headers });
+  }
 }

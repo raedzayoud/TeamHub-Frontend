@@ -89,12 +89,17 @@ export class Login implements OnInit {
                 'idDeveloper',
                 developer.idDeveloper.toString()
               );
+              console.log(
+                'Logged in developer ID:',
+                localStorage.getItem('idDeveloper')
+              );
               localStorage.setItem('idUser', developer.idUser.toString());
               localStorage.setItem('nameDeveloper', developer.name || '');
               localStorage.setItem(
                 'idManager',
                 developer.idManager.toString() || ''
               );
+              this.router.navigate(['/developer']);
             },
             error: () => {
               this.snackBar.open('Failed to load developer info.', 'Close', {
@@ -104,7 +109,6 @@ export class Login implements OnInit {
               });
             },
           });
-          this.router.navigate(['/developer']);
         }
 
         this.snackBar.open('✅ Login successful!', 'Close', {

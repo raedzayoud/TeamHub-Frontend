@@ -8,19 +8,19 @@
     <div class="dashboard">
       <div class="card">
         <h3>My Tasks</h3>
-        <h2>5</h2>
+        <h2>{{ sum }}</h2>
       </div>
       <div class="card">
         <h3>TODO</h3>
-        <h2>12</h2>
+        <h2>{{ tasks.todo || 0 }}</h2>
       </div>
       <div class="card">
         <h3>In Progress</h3>
-        <h2>2</h2>
+        <h2>{{ tasks.inprogress || 0 }}</h2>
       </div>
       <div class="card">
         <h3>Completed</h3>
-        <h2>28</h2>
+        <h2>{{ tasks.done || 0 }}</h2>
       </div>
     </div>
   </div>
