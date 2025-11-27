@@ -13,4 +13,9 @@ export class Menuhr {
   toggleMenu() {
     this.isMenuActive = !this.isMenuActive;
   }
+
+  logout() {
+    localStorage.clear();
+    window.location.href = '/login';
+  }
 }

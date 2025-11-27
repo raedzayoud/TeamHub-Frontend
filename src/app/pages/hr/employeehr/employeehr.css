@@ -159,6 +159,14 @@
   color: #333;
   margin-bottom: 6px;
 }
+.error{
+  color: red;
+  font-size: 15px;
+  margin-top: 4px;
+}
+i{
+  cursor: pointer;
+}
 
 .form-group input {
   width: 90%;

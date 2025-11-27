@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   ReactiveFormsModule,
@@ -6,6 +6,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { HrService } from '../../../services/api/hr/hr';
+import { DeveloperHr } from '../../../services/model/developerHr';
 
 @Component({
   selector: 'app-employeehr',
@@ -14,48 +16,32 @@ import {
   templateUrl: './employeehr.html',
   styleUrls: ['./employeehr.css'],
 })
-export class Employeehr {
+export class Employeehr implements OnInit {
   isAppear = false;
   employeeForm: FormGroup;
 
-  employees = [
-    {
-      initials: 'SJ',
-      name: 'Sarah Johnson',
-      role: 'Senior Developer',
-      department: 'Engineering',
-      status: 'Active',
-    },
-    {
-      initials: 'MC',
-      name: 'Michael Chen',
-      role: 'Product Manager',
-      department: 'Product',
-      status: 'Active',
-    },
-    {
-      initials: 'ED',
-      name: 'Emma Davis',
-      role: 'UX Designer',
-      department: 'Design',
-      status: 'Active',
-    },
-    {
-      initials: 'JW',
-      name: 'James Wilson',
-      role: 'DevOps Engineer',
-      department: 'Engineering',
-      status: 'Active',
-    },
-  ];
+  employees: DeveloperHr[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private hrService: HrService) {
     this.employeeForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      salary: ['', Validators.required, Validators.min(0)],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      salary: ['', [Validators.required, Validators.min(0)]],
     });
+  }
+
+  ngOnInit(): void {
+    this.getAllDevelopers();
+  }
+
+  getAllDevelopers() {
+    this.hrService.getAllDeveloper().subscribe(
+      (data: any) => {
+        this.employees = data.developers;
+      },
+      (error) => console.error('Error fetching developers:', error)
+    );
   }
 
   showForm() {
@@ -67,18 +53,38 @@ export class Employeehr {
   }
 
   onSubmit() {
-    if (this.employeeForm.valid) {
-      const newEmp = {
-        initials: this.getInitials(this.employeeForm.value.name),
-        name: this.employeeForm.value.name,
-        role: 'New Employee',
-        department: 'Unassigned',
-        status: 'Active',
-      };
-      this.employees.push(newEmp);
-      this.employeeForm.reset();
-      this.isAppear = false;
+    if (this.employeeForm.invalid) {
+      this.employeeForm.markAllAsTouched();
+      return;
     }
+
+    const { name, email, salary, password } = this.employeeForm.value;
+
+    this.hrService.addEmployee(name, email, salary, password).subscribe(
+      (response) => {
+        console.log('Employee added successfully:', response);
+        this.getAllDevelopers();
+        this.employeeForm.reset();
+        this.isAppear = false;
+      },
+      (error) => {
+        console.error('Error adding employee:', error);
+      }
+    );
+  }
+
+  searchEmployee(query: string) {
+    if (!query) {
+      this.getAllDevelopers();
+      return;
+    }
+
+    this.hrService.searchEmployee(query).subscribe(
+      (data: any) => {
+        this.employees = data.developers;
+      },
+      (error) => console.error('Error searching employee:', error)
+    );
   }
 
   private getInitials(name: string): string {

@@ -79,7 +79,7 @@ export class Login implements OnInit {
             },
           });
         } else if (response.role === 'HR') {
-          this.router.navigate(['/hrdashboard']);
+          this.router.navigate(['/hrdashborad']);
         } else {
           this.developerService.getDetailsDeveloper().subscribe({
             next: (data: any) => {
