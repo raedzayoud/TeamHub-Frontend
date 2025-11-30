@@ -44,4 +44,35 @@ export class HrService {
     });
     return this.http.post(employees, body, { headers: headers });
   }
+
+  getAllManagers() {
+    const managers = this.baseUrl + `v1/hr/Managers`;
+    const token = localStorage.getItem('token') || '';
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.get(managers, { headers: headers });
+  }
+
+  getAllDeveloperWithoutManager() {
+    const managers = this.baseUrl + `v1/hr/developers/without-manager`;
+    const token = localStorage.getItem('token') || '';
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.get(managers, { headers: headers });
+  }
+
+  affectManagerToDeveloper(developerId: number, managerId: number) {
+    const url =
+      this.baseUrl + `v1/hr/affecteManager/${developerId}/manager/${managerId}`;
+    const token = localStorage.getItem('token') || '';
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.put(url, {}, { headers: headers });
+  }
 }

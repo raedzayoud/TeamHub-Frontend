@@ -6,9 +6,14 @@
         <h1>Employee Directory</h1>
         <p>Manage your team members</p>
       </div>
-      <button class="add-btn" (click)="showForm()">
-        <i class="fa-solid fa-user-plus"></i> Add Employee
-      </button>
+      <div class="buttons-container">
+        <button class="add-btn" (click)="showForm()">
+          <i class="fa-solid fa-user-plus"></i> Add Employee
+        </button>
+        <button class="add-btn" (click)="showformAffect()">
+          <i class="fa-solid fa-user-plus"></i> Affect Employee
+        </button>
+      </div>
     </div>
 
     <!-- Search bar -->
@@ -38,6 +43,68 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Affect Employee Modal -->
+  <div
+    class="add-Employee-container"
+    *ngIf="isAffectAppear"
+    (click)="closeAffectModal($event)"
+  >
+    <div class="container-Employee" (click)="$event.stopPropagation()">
+      <h3>Affect Employee</h3>
+      <form [formGroup]="affectForm" (ngSubmit)="onAffectSubmit()">
+        <!-- Developer Select -->
+        <div class="form-group">
+          <label for="developerName">Developer</label>
+          <select id="developerName" formControlName="developerName" required>
+            <option value="" disabled>Select Developer</option>
+            <option
+              *ngFor="let dev of employeeHrWithoutManager"
+              [value]="dev.id"
+            >
+              {{ dev.name }}
+            </option>
+          </select>
+          <div
+            class="error"
+            *ngIf="
+              affectForm.get('developerName')?.touched &&
+              affectForm.get('developerName')?.invalid
+            "
+          >
+            <small *ngIf="affectForm.get('developerName')?.errors?.['required']"
+              >Developer is required.</small
+            >
+          </div>
+        </div>
+
+        <!-- Manager Select -->
+        <div class="form-group">
+          <label for="managerName">Manager</label>
+          <select id="managerName" formControlName="managerName" required>
+            <option value="" disabled>Select Manager</option>
+            <option *ngFor="let mgr of managers" [value]="mgr.idManager">
+              {{ mgr.name }}
+            </option>
+          </select>
+          <div
+            class="error"
+            *ngIf="
+              affectForm.get('managerName')?.touched &&
+              affectForm.get('managerName')?.invalid
+            "
+          >
+            <small *ngIf="affectForm.get('managerName')?.errors?.['required']"
+              >Manager is required.</small
+            >
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-button">Affect Employee</button>
+      </form>
     </div>
   </div>
 
