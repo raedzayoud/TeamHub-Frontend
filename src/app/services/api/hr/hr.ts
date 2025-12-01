@@ -75,4 +75,24 @@ export class HrService {
     });
     return this.http.put(url, {}, { headers: headers });
   }
+
+  getSumSalary() {
+    const url = this.baseUrl + `v1/hr/api/salary/total`;
+    const token = localStorage.getItem('token') || '';
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.get(url, { headers: headers });
+  }
+
+  getAverageSalary() {
+    const url = this.baseUrl + `v1/hr/api/salary/average`;
+    const token = localStorage.getItem('token') || '';
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.get(url, { headers: headers });
+  }
 }

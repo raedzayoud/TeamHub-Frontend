@@ -6,12 +6,13 @@
     <div class="stats">
       <div class="card">
         <p class="card-title">Total Monthly Payroll</p>
-        <h2>$847,500</h2>
-        <p class="desc">For 127 employees</p>
+        <h2>${{ salaryTotal }}</h2>
+        <p class="desc">For {{ employees?.length || 0 }} employees</p>
       </div>
+
       <div class="card">
         <p class="card-title">Average Salary</p>
-        <h2>$6,673</h2>
+        <h2>${{ avergeSalary }}</h2>
         <p class="desc">Per employee/month</p>
       </div>
     </div>
@@ -20,25 +21,24 @@
       <h3>Employee Payroll</h3>
       <p class="desc">Monthly compensation details</p>
 
-      <div class="employee-card">
-        <div class="avatar">SJ</div>
-        <div class="employee-info">
-          <p class="name">Sarah Johnson</p>
-          <p class="role">Senior Developer</p>
+      <!-- Dynamic Employee Cards -->
+      <div class="employee-card" *ngFor="let emp of employees">
+        <div class="avatar">
+          {{ emp.name ? emp.name[0].toUpperCase() : "?" }}
         </div>
-        <div class="salary">$8,500</div>
-        <button class="status">Processed</button>
-        <div class="menu">⋮</div>
-      </div>
 
-      <div class="employee-card">
-        <div class="avatar">MC</div>
         <div class="employee-info">
-          <p class="name">Michael Chen</p>
-          <p class="role">Product Manager</p>
+          <p class="name">{{ emp.name }}</p>
+          <p class="role">{{ emp.email }}</p>
         </div>
-        <div class="salary">$9,200</div>
-        <button class="status">Processed</button>
+
+        <div class="salary">
+          <!-- Change this if your backend sends salary -->
+          <!-- $8,500 -->
+        </div>
+
+        <!-- <button class="status">Processed</button> -->
+
         <div class="menu">⋮</div>
       </div>
     </div>
