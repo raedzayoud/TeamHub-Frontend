@@ -10,6 +10,7 @@ import { HrService } from '../../../services/api/hr/hr';
 import { DeveloperHr } from '../../../services/model/developerHr';
 import { ManagerHr } from '../../../services/model/managerhr';
 import { DeveloperHrWithoutManager } from '../../../services/model/developerhrwithoutmanager';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-employeehr',
@@ -22,14 +23,17 @@ export class Employeehr implements OnInit {
   isAppear = false;
   employeeForm: FormGroup;
   affectForm: FormGroup;
-
   isAffectAppear: boolean = false;
 
   managers: ManagerHr[] = [];
   employees: DeveloperHr[] = [];
   employeeHrWithoutManager: DeveloperHrWithoutManager[] = [];
 
-  constructor(private fb: FormBuilder, private hrService: HrService) {
+  constructor(
+    private snackBar: MatSnackBar,
+    private fb: FormBuilder,
+    private hrService: HrService
+  ) {
     this.employeeForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
@@ -92,6 +96,12 @@ export class Employeehr implements OnInit {
 
     this.hrService.affectManagerToDeveloper(developerId, managerId).subscribe({
       next: (response) => {
+        // add sncackbar here
+        this.snackBar.open('Manager affected successfully', 'Close', {
+          duration: 3000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+        });
         console.log('Manager affected successfully:', response);
         this.getAllDevelopers();
         this.affectForm.reset();
@@ -124,6 +134,11 @@ export class Employeehr implements OnInit {
 
     this.hrService.addEmployee(name, email, salary, password).subscribe(
       (response) => {
+        this.snackBar.open('Employee added successfully', 'Close', {
+          duration: 3000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+        });
         console.log('Employee added successfully:', response);
         this.getAllDevelopers();
         this.employeeForm.reset();

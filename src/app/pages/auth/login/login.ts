@@ -102,11 +102,15 @@ export class Login implements OnInit {
               this.router.navigate(['/developer']);
             },
             error: () => {
-              this.snackBar.open('Failed to load developer info.', 'Close', {
-                duration: 3000,
-                verticalPosition: 'top',
-                panelClass: ['error-snackbar'],
-              });
+              this.snackBar.open(
+                'You Should have Manager Please Contact the HR Team to give you a manager.',
+                'Close',
+                {
+                  duration: 3000,
+                  verticalPosition: 'top',
+                  panelClass: ['error-snackbar'],
+                }
+              );
             },
           });
         }

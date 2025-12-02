@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { ManagerService } from '../../../services/api/manager/manager';
 import { TaskCount } from '../../../services/model/taskCount';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-overviewmanager',
@@ -28,7 +29,11 @@ export class Overviewmanager implements OnInit {
 
   sumTask = 0;
 
-  constructor(private fb: FormBuilder, private mangerService: ManagerService) {}
+  constructor(
+    private snackBar: MatSnackBar,
+    private fb: FormBuilder,
+    private mangerService: ManagerService
+  ) {}
 
   ngOnInit(): void {
     this.projectForm = this.fb.group({
@@ -48,6 +53,11 @@ export class Overviewmanager implements OnInit {
 
     this.mangerService.createProject(projectName).subscribe({
       next: (response) => {
+        this.snackBar.open('Project created successfully', 'Close', {
+          duration: 3000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+        });
         console.log('Project created successfully:', (response as any).success);
         this.toggleShow();
       },

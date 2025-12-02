@@ -6,7 +6,7 @@
     <div class="stats">
       <div class="card">
         <p class="card-title">Total Monthly Payroll</p>
-        <h2>${{ salaryTotal }}</h2>
+        <h2>${{ salaryTotal || 0 }}</h2>
         <p class="desc">For {{ employees?.length || 0 }} employees</p>
       </div>
 

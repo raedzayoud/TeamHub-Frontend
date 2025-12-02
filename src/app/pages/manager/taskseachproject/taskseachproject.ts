@@ -5,6 +5,7 @@ import { ManagerService } from '../../../services/api/manager/manager';
 import { Task } from '../../../services/model/task';
 import { DeveloperManager } from '../../../services/model/developerManager';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-taskseachproject',
@@ -23,7 +24,8 @@ export class Taskseachproject {
 
   constructor(
     private route: ActivatedRoute,
-    private managerService: ManagerService
+    private managerService: ManagerService,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -76,6 +78,11 @@ export class Taskseachproject {
       .createTask(this.nameTask, this.idDeveloper, this.projectId)
       .subscribe({
         next: (data: any) => {
+          this.snackBar.open('Task created successfully', 'Close', {
+            duration: 3000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+          });
           console.log('Task created successfully:', data);
           this.getTasksByProjectId();
           this.resetForm();
